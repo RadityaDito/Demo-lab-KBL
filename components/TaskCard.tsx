@@ -6,9 +6,10 @@ import { Checkbox } from "./ui/checkbox";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { setTaskToDone } from "@/actions/task";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 
 interface TaskCardProps {
   task: Task;
@@ -43,7 +44,8 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
         defaultChecked={task.done}
       /> */}
         <label htmlFor={task.id.toString()}>
-          {task.content}
+          {/* {task.content} */}
+          {task.name}
           {task.expiresAt && (
             <p
               className={cn(
@@ -56,7 +58,11 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
           )}
         </label>
 
-        <Button className={cn("")}>Open File</Button>
+        <Button className={cn("")}>
+          <a href={task.content} target="_blank">
+            Open File
+          </a>
+        </Button>
       </div>
     </>
   );

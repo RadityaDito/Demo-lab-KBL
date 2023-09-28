@@ -109,23 +109,19 @@ function CreateTaskDialog({ open, collection, setOpen }: Props) {
               className="space-y-4 flex flex-col"
               onSubmit={form.handleSubmit(onSubmit)}
             >
-              {/* <FormField
+              <FormField
                 control={form.control}
-                name="content"
+                name="name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Content</FormLabel>
                     <FormControl>
-                      <Textarea
-                        rows={5}
-                        placeholder="Task content here"
-                        {...field}
-                      />
+                      <Input placeholder="Name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
-              /> */}
+              />
               <FormField
                 control={form.control}
                 name="content"
@@ -143,7 +139,9 @@ function CreateTaskDialog({ open, collection, setOpen }: Props) {
                             <SelectItem value="https://docs.google.com/spreadsheets/d/1qfyfSKSd84ee8zjkpVUR1_PTukEplFYAf0XNrAGAB1Q">
                               Lembar Data Kebisingan
                             </SelectItem>
-                            <SelectItem value="File 2">File 2</SelectItem>
+                            <SelectItem value="https://docs.google.com/spreadsheets/d/1sqCwcDybexzN74HqYUEtVwdoO0OdC1Pp">
+                              LHP
+                            </SelectItem>
                           </SelectGroup>
                         </SelectContent>
                       </Select>
