@@ -23,6 +23,15 @@ import {
   FormLabel,
   FormMessage,
 } from "./ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 import { Textarea } from "./ui/textarea";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
@@ -79,7 +88,7 @@ function CreateTaskDialog({ open, collection, setOpen }: Props) {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="flex gap-2">
-            Add task to collection:
+            Add task to :
             <span
               className={cn(
                 "p-[1px] bg-clip-text text-transparent",
@@ -94,13 +103,13 @@ function CreateTaskDialog({ open, collection, setOpen }: Props) {
             to a collection.
           </DialogDescription>
         </DialogHeader>
-        <div className="gap-4 py-4">
+        <div className="gap-4 py-1">
           <Form {...form}>
             <form
               className="space-y-4 flex flex-col"
               onSubmit={form.handleSubmit(onSubmit)}
             >
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="content"
                 render={({ field }) => (
@@ -116,8 +125,34 @@ function CreateTaskDialog({ open, collection, setOpen }: Props) {
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+              /> */}
               <FormField
+                control={form.control}
+                name="content"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Content</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={(color) => field.onChange(color)}>
+                        <SelectTrigger className="">
+                          <SelectValue placeholder="Select the file template" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectLabel>Template File</SelectLabel>
+                            <SelectItem value="https://docs.google.com/spreadsheets/d/1qfyfSKSd84ee8zjkpVUR1_PTukEplFYAf0XNrAGAB1Q">
+                              Lembar Data Kebisingan
+                            </SelectItem>
+                            <SelectItem value="File 2">File 2</SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {/* <FormField
                 control={form.control}
                 name="expiresAt"
                 render={({ field }) => (
@@ -153,7 +188,7 @@ function CreateTaskDialog({ open, collection, setOpen }: Props) {
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+              /> */}
             </form>
           </Form>
         </div>

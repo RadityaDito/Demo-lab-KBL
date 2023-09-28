@@ -94,7 +94,7 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection }) => {
           </Button>
         </CollapsibleTrigger>
         <CollapsibleContent className="flex rounded-b-md flex-col dark:bg-neutral-900 shadow-lg ">
-          {tasks.length === 0 && (
+          {/* {tasks.length === 0 && (
             <Button
               variant={"ghost"}
               className="flex items-center justify-center rounded-none gap-1 p-8 py-12"
@@ -109,10 +109,49 @@ const CollectionCard: FC<CollectionCardProps> = ({ collection }) => {
                 Create one
               </span>
             </Button>
-          )}
-          {tasks.length > 0 && (
+          )} */}
+          {tasks.length >= 0 && (
+            //TODO : Create template
             <>
-              <Progress value={progress} className="rounded-none" />
+              <div className="grid grid-cols-2 gap-3 p-4">
+                <div className="flex items-center">
+                  <p className="w-32">Nomor Project</p>
+                  <p>: 21212121212</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Nama Customer</p>
+                  <p>: Isi Nama Customer</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Lokasi Administrasi</p>
+                  <p>: Isi Lokasi Administrasi</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Surel</p>
+                  <p>: Isi Surel</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">cp</p>
+                  <p>: Isi Cp</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Lokasi Pengambilan sample</p>
+                  <p>: Isi Lokasi Administrasi</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Nilai Penawaran</p>
+                  <p>: Isi Nilai Penawaran</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Detail Produk</p>
+                  <p>: Isi Detail Produk</p>
+                </div>
+                <div className="flex items-center">
+                  <p className="w-32">Status</p>
+                  <p>: Selesai </p>
+                </div>
+              </div>
+
               <div className="p-4 gap-3 flex flex-col">
                 {tasks.map((task) => (
                   <TaskCard key={task.id} task={task} />

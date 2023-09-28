@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { setTaskToDone } from "@/actions/task";
 import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 interface TaskCardProps {
   task: Task;
@@ -25,8 +27,10 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
   const router = useRouter();
 
   return (
-    <div className="flex gap-2 items-center">
-      <Checkbox
+    <>
+      <Separator />
+      <div className="flex gap-2 items-center justify-between px-4">
+        {/* <Checkbox
         id={task.id.toString()}
         className="w-5 h-5"
         onCheckedChange={() => {
@@ -37,21 +41,24 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
         }}
         disabled={task.done || isLoading}
         defaultChecked={task.done}
-      />
-      <label htmlFor={task.id.toString()}>
-        {task.content}
-        {task.expiresAt && (
-          <p
-            className={cn(
-              "text-xs text-neutral-500 dark:text-neutral-400",
-              getExpirationColor(task.expiresAt)
-            )}
-          >
-            {format(task.expiresAt, "dd/MM/yyyy")}
-          </p>
-        )}
-      </label>
-    </div>
+      /> */}
+        <label htmlFor={task.id.toString()}>
+          {task.content}
+          {task.expiresAt && (
+            <p
+              className={cn(
+                "text-xs text-neutral-500 dark:text-neutral-400",
+                getExpirationColor(task.expiresAt)
+              )}
+            >
+              {format(task.expiresAt, "dd/MM/yyyy")}
+            </p>
+          )}
+        </label>
+
+        <Button className={cn("")}>Open File</Button>
+      </div>
+    </>
   );
 };
 

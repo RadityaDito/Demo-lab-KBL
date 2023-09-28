@@ -90,10 +90,8 @@ const CreateCollectionSheet: FC<CreateCollectionSheetProps> = ({
     <Sheet open={open} onOpenChange={openChangeWrapper}>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Add new collection</SheetTitle>
-          <SheetDescription>
-            Collections are a way to group your tasks
-          </SheetDescription>
+          <SheetTitle>Add new Project</SheetTitle>
+          <SheetDescription>Add a new project to the database</SheetDescription>
         </SheetHeader>
         <Form {...form}>
           <form
@@ -109,7 +107,7 @@ const CreateCollectionSheet: FC<CreateCollectionSheetProps> = ({
                   <FormControl>
                     <Input placeholder="Personal" {...field} />
                   </FormControl>
-                  <FormDescription>Collection Name</FormDescription>
+                  <FormDescription>Project Name</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -150,7 +148,7 @@ const CreateCollectionSheet: FC<CreateCollectionSheetProps> = ({
                     </Select>
                   </FormControl>
                   <FormDescription>
-                    Select a color for your collection
+                    Select a color for your Project
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
